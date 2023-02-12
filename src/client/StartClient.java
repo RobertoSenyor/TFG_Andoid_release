@@ -78,7 +78,7 @@ public class StartClient {
 
     public static void ParseJsonResponse(){
         try {
-            URL url = new URL("https://jsonplaceholder.typicode.com/photos");
+            URL url = new URL("https://yandex.ru");
             HttpURLConnection httpURLConnection=(HttpURLConnection)url.openConnection();
             httpURLConnection.setRequestMethod("GET");
 
