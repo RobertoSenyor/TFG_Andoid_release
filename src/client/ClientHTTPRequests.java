@@ -384,6 +384,4 @@ public class ClientHTTPRequests {
             return new JSONObject();
         }
     }
-
-    //
 }
