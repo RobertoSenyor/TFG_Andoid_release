@@ -3,6 +3,7 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.HttpClientBuilder;
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.*;
@@ -304,7 +305,7 @@ public class ClientHTTPRequests {
 
     /**
      * Функция получает уникальный идентификатор пользователя и токен сессии
-     * и возвращает данные об аккаунте в формате JSON
+     * и возвращает данные об аккаунте в формате JSONObject
      * @param _UserID Integer (уникальный идентификатор пользователя)
      * @param _Token String (токен сессии)
      * @return JSONObject
@@ -334,19 +335,18 @@ public class ClientHTTPRequests {
             System.out.println("Response code: " + httpURLConnection.getResponseCode());
             System.out.println("Response: " + response.toString());
 
-            // извлечение данных по ключу, здесь ключ "result"
             return new JSONObject(response.toString());
 
         } catch (Exception e) {
             e.printStackTrace();
-            System.err.println("sendGetRequest_isExistUsername: Ошибка проверки существования пользователя с заданным именем;");
+            System.err.println("sendGetRequest_GetUserInfo: Ошибка получения информации о пользователе;");
             return new JSONObject();
         }
     }
 
     /**
      * Функция получает токен сессии
-     * и возвращает данные об аккаунте в формате JSON
+     * и возвращает данные об аккаунте в формате JSONObject
      * @param _Token String (токен сессии)
      * @return JSONObject
      * @see <a href="https://github.com/RobertoSenyor/TFG_Documentation/blob/main/API.md#информация-о-профиле">GitHubURL</a>
@@ -375,15 +375,52 @@ public class ClientHTTPRequests {
 //            System.out.println("Response code: " + httpURLConnection.getResponseCode());
 //            System.out.println("Response: " + response.toString());
 
-            // извлечение данных по ключу, здесь ключ "result"
             return new JSONObject(response.toString());
 
         } catch (Exception e) {
             e.printStackTrace();
-            System.err.println("sendGetRequest_isExistUsername: Ошибка проверки существования пользователя с заданным именем;");
+            System.err.println("sendGetRequest_GetUserInfo: Ошибка получения информации о пользователе;");
             return new JSONObject();
         }
     }
 
+    /**
+     * Функция получает токен сессии
+     * и возвращает данные ленты в формате JSONArray
+     * @param _Token String (токен сессии)
+     * @return JSONArray
+     * @see <a href="https://github.com/RobertoSenyor/TFG_Documentation/blob/main/API.md#запрос-ленты">GitHubURL</a>
+     */
+    public static JSONArray sendGetRequest_GetInfoList(String _Token)
+    {
+        // TODO - поменять URL
+        String urlRequest = "http://127.0.0.1:5000/Match/get_list?token=" + _Token;
 
+        try {
+            URL url = new URL(urlRequest);
+            HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+            httpURLConnection.setRequestMethod("GET");
+
+            String line = "";
+            InputStreamReader inputStreamReader = new InputStreamReader(httpURLConnection.getInputStream());
+            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+            StringBuilder response = new StringBuilder();
+            while ((line = bufferedReader.readLine()) != null) {
+                response.append(line);
+            }
+            bufferedReader.close();
+
+            // TODO - данный вывод можно убрать
+//            System.out.println("Response code: " + httpURLConnection.getResponseCode());
+//            System.out.println("Response: " + response.toString());
+
+            // извлечение данных по ключу, здесь ключ "result"
+            return new JSONObject(response.toString()).getJSONArray("result");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.err.println("sendGetRequest_GetInfoList: Ошибка получения ленты;");
+            return new JSONArray();
+        }
+    }
 }

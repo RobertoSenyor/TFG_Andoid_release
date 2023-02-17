@@ -28,7 +28,17 @@ public class StartClient {
 
 //        ClientHTTPRequests.sendGetRequest_GetUserInfo(123,"1234567890aasdfghjkl");
 
+        JSONArray jsonArray = ClientHTTPRequests.sendGetRequest_GetInfoList("1234567890aasdfghjkl");
 
+        for (int i = 0; i < jsonArray.length(); i++)
+        {
+            System.out.println("userID: " + jsonArray.getJSONObject(i).getInt("user_id"));
+            System.out.println("userName: " + jsonArray.getJSONObject(i).getString("username"));
+            System.out.println("avatarURL: " + jsonArray.getJSONObject(i).getString("avatar_url"));
+            System.out.println("about: " + jsonArray.getJSONObject(i).getString("about"));
+            System.out.println("match_game: " + jsonArray.getJSONObject(i).getString("match_game"));
+            System.out.println("+=============================================+");
+        }
     }
 }
 
