@@ -302,5 +302,86 @@ public class ClientHTTPRequests {
         }
     }
 
+    /**
+     * Функция получает уникальный идентификатор пользователя и токен сессии
+     * и возвращает данные об аккаунте в формате JSON
+     * @params <p>Integer _UserID - уникальный идентификатор</p>
+     * <p>String _Token - токен сессии</p>
+     * @return JSONObject
+     * @see <a href="https://github.com/RobertoSenyor/TFG_Documentation/blob/main/API.md#информация-о-профиле">GitHubURL</a>
+     * @see ClientHTTPRequests#sendGetRequest_GetUserInfo(String)
+     */
+    public static JSONObject sendGetRequest_GetUserInfo(Integer _UserID, String _Token)
+    {
+        // TODO - поменять URL
+        String urlRequest = "http://127.0.0.1:5000/User/get_info?user_id=" + _UserID.toString() + "&token=" + _Token;
 
+        try {
+            URL url = new URL(urlRequest);
+            HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+            httpURLConnection.setRequestMethod("GET");
+
+            String line = "";
+            InputStreamReader inputStreamReader = new InputStreamReader(httpURLConnection.getInputStream());
+            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+            StringBuilder response = new StringBuilder();
+            while ((line = bufferedReader.readLine()) != null) {
+                response.append(line);
+            }
+            bufferedReader.close();
+
+            // TODO - данный вывод можно убрать
+            System.out.println("Response code: " + httpURLConnection.getResponseCode());
+            System.out.println("Response: " + response.toString());
+
+            // извлечение данных по ключу, здесь ключ "result"
+            return new JSONObject(response.toString());
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.err.println("sendGetRequest_isExistUsername: Ошибка проверки существования пользователя с заданным именем;");
+            return new JSONObject();
+        }
+    }
+
+    /**
+     * Функция получает токен сессии
+     * и возвращает данные об аккаунте в формате JSON
+     * @params <p>String _Token - токен сессии</p>
+     * @return JSONObject
+     * @see <a href="https://github.com/RobertoSenyor/TFG_Documentation/blob/main/API.md#информация-о-профиле">GitHubURL</a>
+     * @see ClientHTTPRequests#sendGetRequest_GetUserInfo(Integer, String)
+     */
+    public static JSONObject sendGetRequest_GetUserInfo(String _Token)
+    {
+        // TODO - поменять URL
+        String urlRequest = "http://127.0.0.1:5000/User/get_info?token=" + _Token;
+
+        try {
+            URL url = new URL(urlRequest);
+            HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+            httpURLConnection.setRequestMethod("GET");
+
+            String line = "";
+            InputStreamReader inputStreamReader = new InputStreamReader(httpURLConnection.getInputStream());
+            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+            StringBuilder response = new StringBuilder();
+            while ((line = bufferedReader.readLine()) != null) {
+                response.append(line);
+            }
+            bufferedReader.close();
+
+            // TODO - данный вывод можно убрать
+//            System.out.println("Response code: " + httpURLConnection.getResponseCode());
+//            System.out.println("Response: " + response.toString());
+
+            // извлечение данных по ключу, здесь ключ "result"
+            return new JSONObject(response.toString());
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.err.println("sendGetRequest_isExistUsername: Ошибка проверки существования пользователя с заданным именем;");
+            return new JSONObject();
+        }
+    }
 }
