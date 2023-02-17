@@ -18,8 +18,8 @@ public class ClientHTTPRequests {
     /**
      * Функция возвращает true\false если пользователь с этим именем (_Username)
      * существует или нет соответственно
+     * @param _Username String (имя пользователя)
      * @return boolean
-     * @params String _Username - имя пользователя
      * @see <a href="https://github.com/RobertoSenyor/TFG_Documentation/blob/main/API.md#занято-ли-имя">GitHubURL</a>
      */
     public static boolean sendGetRequest_isExistUsername(String _Username) {
@@ -57,10 +57,10 @@ public class ClientHTTPRequests {
 
     /**
      * Функция получает токен при успешной регистрации пользователя
+     * @param _Username String (имя пользователя)
+     * @param _SteamURL String (Steam-аккаунт)
+     * @param _Password String (пароль для регистрации)
      * @return String
-     * @params <p>String _Username - имя пользователя</p>
-     * <p>String _SteamURL - ссылка на Staem-аккаунт</p>
-     * <p>String _Password - пароль для регистрации</p>
      * @see <a href="https://github.com/RobertoSenyor/TFG_Documentation/blob/main/API.md#регистрация">GitHubURL</a>
      */
     public static String sendPostRequest_RegistrationUser(String _Username, String _SteamURL, String _Password) {
@@ -116,9 +116,9 @@ public class ClientHTTPRequests {
 
     /**
      * Функция получает токен при успешной авторизации пользователя
+     * @param _Username String (имя пользователя)
+     * @param _Password String (пароль при регистрации)
      * @return String
-     * @params <p>String _Username - имя пользователя</p>
-     * <p>String _Password - пароль для регистрации</p>
      * @see <a href="https://github.com/RobertoSenyor/TFG_Documentation/blob/main/API.md#логин">GitHubURL</a>
      */
     public static String sendPostRequest_LoginUser(String _Username, String _Password) {
@@ -172,8 +172,8 @@ public class ClientHTTPRequests {
 
     /**
      * Функция получает токен при успешном выходе пользователя из аккаунта
+     * @param _Token String (токен сессии)
      * @return boolean
-     * @params <p>String _Token - токен сессии</p>
      * @see <a href="https://github.com/RobertoSenyor/TFG_Documentation/blob/main/API.md#выход">GitHubURL</a>
      */
     public static boolean sendPostRequest_LogoutUser(String _Token) {
@@ -209,7 +209,7 @@ public class ClientHTTPRequests {
     /**
      * Функция возвращает true\false если ссылка на профиль в Steam
      * существует или нет соответственно
-     * @params String _SteamURL - ссылка на профиль в Steam
+     * @param _SteamURL String (ссылка на профиль в Steam)
      * @return boolean
      * @see <a href="https://github.com/RobertoSenyor/TFG_Documentation/blob/main/API.md#занятали-ссылка-на-профиль">GitHubURL</a>
      */
@@ -247,10 +247,10 @@ public class ClientHTTPRequests {
     }
 
     /**
-     * Функция получает ответ от сервера при успешном получении токена и информации рода "о себе"
+     * Функция получает ответ от сервера при успешном получении токена и информации типа "о себе"
+     * @param _About String (информация типа "о себе")
+     * @param _Token String (токен сессии)
      * @return boolean
-     * @params <p>String _About - информации рода "о себе"</p>
-     * <p>String _Token - токен сессии</p>
      * @see <a href="https://github.com/RobertoSenyor/TFG_Documentation/blob/main/API.md#обновеление-информации-о-профиле">GitHubURL</a>
      */
     public static boolean sendPostRequest_UpdateUserInfo(String _About, String _Token)
@@ -305,8 +305,8 @@ public class ClientHTTPRequests {
     /**
      * Функция получает уникальный идентификатор пользователя и токен сессии
      * и возвращает данные об аккаунте в формате JSON
-     * @params <p>Integer _UserID - уникальный идентификатор</p>
-     * <p>String _Token - токен сессии</p>
+     * @param _UserID Integer (уникальный идентификатор пользователя)
+     * @param _Token String (токен сессии)
      * @return JSONObject
      * @see <a href="https://github.com/RobertoSenyor/TFG_Documentation/blob/main/API.md#информация-о-профиле">GitHubURL</a>
      * @see ClientHTTPRequests#sendGetRequest_GetUserInfo(String)
@@ -347,7 +347,7 @@ public class ClientHTTPRequests {
     /**
      * Функция получает токен сессии
      * и возвращает данные об аккаунте в формате JSON
-     * @params <p>String _Token - токен сессии</p>
+     * @param _Token String (токен сессии)
      * @return JSONObject
      * @see <a href="https://github.com/RobertoSenyor/TFG_Documentation/blob/main/API.md#информация-о-профиле">GitHubURL</a>
      * @see ClientHTTPRequests#sendGetRequest_GetUserInfo(Integer, String)
@@ -384,4 +384,6 @@ public class ClientHTTPRequests {
             return new JSONObject();
         }
     }
+
+
 }
