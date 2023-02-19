@@ -217,7 +217,7 @@ public class ClientHTTPRequests {
     public static boolean sendGetRequest_isExistSteamURL(String _SteamURL) {
 
         // TODO - поменять URL
-        String urlRequest = "http://127.0.0.1:5000/User/exist_steamurl?steamurl=" + _SteamURL;
+        String urlRequest = "http://127.0.0.1:5000/User/exist_steam_url?steam_url=" + _SteamURL;
 
         try {
             URL url = new URL(urlRequest);
