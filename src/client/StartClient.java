@@ -1,3 +1,5 @@
+package client;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -8,14 +10,46 @@ import java.net.URL;
 
 public class StartClient {
     public static void main(String[] args) {
+        //ClientHTTPRequests.sendPostRequest_RegistrationUser("Roberto", "URL", "Password");
+        //ClientHTTPRequests.sendGetRequest_isExistUsername("Roberto");
+        //ClientHTTPRequests.sendPostRequest_LoginUser("knight_murloc", "123");
+        //ClientHTTPRequests.sendPostRequest_LogoutUser("1234567890aasdfghjkl");
+        //ClientHTTPRequests.sendGetRequest_isExistSteamURL("https://steamcommunity.com/id/knight_murloc/");
+        //ClientHTTPRequests.sendPostRequest_UpdateUserInfo("Hello, it's me!", "1234567890aasdfghjkl");
+        //ClientHTTPRequests.sendPostRequest_SetAttitude(-1, 123, "1234567890aasdfghjkl");
 
-//        ClientHTTPRequests.sendGetRequest_isExistUsername("knight_murloc");
-//        ClientHTTPRequests.sendPostRequest_RegistrationUser("Roberto", "URL", "Password");
-//        ClientHTTPRequests.sendPostRequest_LoginUser("knight_murloc", "123");
-//        ClientHTTPRequests.sendPostRequest_LogoutUser("1234567890aasdfghjkl");
-        ClientHTTPRequests.sendGetRequest_isExistSteamURL("https://steamcommunity.com/id/knight_murloc/");
-//        ClientHTTPRequests.sendPostRequest_UpdateUserInfo("Hello, it's me!", "1234567890aasdfghjkl");
+        /*
+        JSONArray jsonArray = ClientHTTPRequests.sendGetRequest_FindMessage(123,"test","1234567890aasdfghjkl");
 
+        for (int i=0; i < jsonArray.length(); i++)
+        {
+            System.out.println("message_id: " + jsonArray.getInt(i));
+            System.out.println("+====================================================+");
+        }
+        */
+        /*
+        JSONArray jsonArray = ClientHTTPRequests.sendGetRequest_GetChatsList("1234567890aasdfghjkl");
+
+        for (int i=0; i < jsonArray.length(); i++)
+        {
+            System.out.println("chat_id: " + jsonArray.getJSONObject(i).getInt("chat_id"));
+            System.out.println("user_id: " + jsonArray.getJSONObject(i).getInt("user_id"));
+            System.out.println("+====================================================+");
+        }
+        */
+        /*
+        JSONArray jsonArray = ClientHTTPRequests.sendGetRequest_GetMessagesList(123, 101, 100, 10, true, "1234567890aasdfghjkl");
+
+        for (int i=0; i < jsonArray.length(); i++)
+        {
+            System.out.println("message_id: " + jsonArray.getJSONObject(i).getInt("message_id"));
+            System.out.println("user_id: " + jsonArray.getJSONObject(i).getInt("user_id"));
+            System.out.println("text: " + jsonArray.getJSONObject(i).getString("text"));
+            System.out.println("time: " + jsonArray.getJSONObject(i).getInt("time"));
+            System.out.println("+====================================================+");
+        }
+        */
+        /*
         JSONArray jsonArray = ClientHTTPRequests.sendGetRequest_GetUserInfo("1234567890aasdfghjkl").getJSONArray("game_list");
 
         for (int i=0; i < jsonArray.length(); i++)
@@ -24,21 +58,23 @@ public class StartClient {
             System.out.println("playTime: " + jsonArray.getJSONObject(i).getInt("playtime"));
             System.out.println("gameURL: " + jsonArray.getJSONObject(i).getString("cover_url"));
             System.out.println("+====================================================+");
-        }
+        }*/
 
-        ClientHTTPRequests.sendGetRequest_GetUserInfo(123,"1234567890aasdfghjkl");
+//        ClientHTTPRequests.sendGetRequest_GetUserInfo(123,"1234567890aasdfghjkl");
 
-        JSONArray jsonArray2 = ClientHTTPRequests.sendGetRequest_GetInfoList("1234567890aasdfghjkl");
+        /*
+        JSONArray jsonArray = ClientHTTPRequests.sendGetRequest_GetInfoList("1234567890aasdfghjkl");
 
-        for (int i = 0; i < jsonArray2.length(); i++)
+        for (int i = 0; i < jsonArray.length(); i++)
         {
-            System.out.println("userID: " + jsonArray2.getJSONObject(i).getInt("user_id"));
-            System.out.println("userName: " + jsonArray2.getJSONObject(i).getString("username"));
-            System.out.println("avatarURL: " + jsonArray2.getJSONObject(i).getString("avatar_url"));
-            System.out.println("about: " + jsonArray2.getJSONObject(i).getString("about"));
-            System.out.println("match_game: " + jsonArray2.getJSONObject(i).getString("match_game"));
+            System.out.println("userID: " + jsonArray.getJSONObject(i).getInt("user_id"));
+            System.out.println("userName: " + jsonArray.getJSONObject(i).getString("username"));
+            System.out.println("avatarURL: " + jsonArray.getJSONObject(i).getString("avatar_url"));
+            System.out.println("about: " + jsonArray.getJSONObject(i).getString("about"));
+            System.out.println("match_game: " + jsonArray.getJSONObject(i).getString("match_game"));
             System.out.println("+=============================================+");
         }
+         */
     }
 }
 
