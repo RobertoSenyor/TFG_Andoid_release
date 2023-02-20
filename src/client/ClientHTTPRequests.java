@@ -1,18 +1,8 @@
-import org.apache.http.HttpEntity;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.StringEntity;
-import org.apache.http.impl.client.HttpClientBuilder;
 import org.json.JSONArray;
 import org.json.JSONObject;
-
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.net.URLEncoder;
-import java.util.HashMap;
-import java.util.Map;
-
 
 public class ClientHTTPRequests {
 
@@ -539,7 +529,7 @@ public class ClientHTTPRequests {
 
         } catch (Exception e) {
             e.printStackTrace();
-            System.err.println("sendPostRequest_SendMessage: Ошибка при отпарвке сообщения;");
+            System.err.println("sendPostRequest_SendMessage: Ошибка при отправке сообщения;");
             return false;
         }
     }
@@ -549,20 +539,19 @@ public class ClientHTTPRequests {
      * флаг, определяющий, нужны старые или новые сообщения и токен сессии
      * Функция возвращает данные каждого необходимого сообщения (идентификационный номер сообщения, пользователя и текст) в формате JSONArray
      * @param _ChatID Integer идентификационный номер чата
-     * @param _LastMessageID Integer идентификационный номер последнего сообщения
-     * @param _FirstMessageID Integer идентификационный номер первого сообщения
+     * @param _MessageID Integer идентификационный номер последнего сообщения
      * @param _Count Integer необходимое количество сообщений
      * @param _IsNext boolean флаг, если true, то запрос более новых сообщений, иначе более старых
      * @param _Token String (токен сессии)
      * @return JSONArray
      * @see <a href="https://github.com/RobertoSenyor/TFG_Documentation/blob/main/API.md#сообщения-в-чате">GitHubURL</a>
      */
-    public static JSONArray sendGetRequest_GetMessagesList(Integer _ChatID, Integer _LastMessageID, Integer _FirstMessageID,
+    public static JSONArray sendGetRequest_GetMessagesList(Integer _ChatID, Integer _MessageID,
                                                            Integer _Count, boolean _IsNext, String _Token)
     {
         // TODO - поменять URL
-        String urlRequest = "http://127.0.0.1:5000/Messages/get_list?token=" + _Token + "&chat_id=" + _ChatID + "&last_message_id="
-                + _LastMessageID + "&first_message_id=" + _FirstMessageID + "&count=" + _Count + "&is_next=" + _IsNext;
+        String urlRequest = "http://127.0.0.1:5000/Messages/get_list?token=" + _Token + "&chat_id=" + _ChatID + "&last_id="
+                + _MessageID  + "&count=" + _Count + "&is_next=" + _IsNext;
 
         try {
             URL url = new URL(urlRequest);
@@ -671,6 +660,121 @@ public class ClientHTTPRequests {
             e.printStackTrace();
             System.err.println("sendGetRequest_FindMessage: Ошибка нахождения сообщения;");
             return new JSONArray();
+        }
+    }
+
+    /**
+     * Функция добавляет пользователя в ЧС,
+     * принимает токен сессии и идентификатор пользователя, которого
+     * блокируют
+     * @param _UserID int (идентификатор блокируемого пользователя)
+     * @param _Token String (токен сессии)
+     * @return boolean
+     * @see <a href="https://github.com/RobertoSenyor/TFG_Documentation/blob/main/API.md#добавить-пользователя-в-чс">GitHubURL</a>
+     */
+    public static boolean sendPostRequest_AddUserInBlackList(int _UserID, String _Token)
+    {
+        // TODO - поменять URL
+        String urlRequest = "http://127.0.0.1:5000/Messages/black_list?token=" + _Token;
+
+        try {
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.put("user_id", _UserID);
+
+            String post_data = jsonObject.toString();
+
+            URL url = new URL(urlRequest);
+            HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+            httpURLConnection.setRequestMethod("POST");
+
+            // для отправки в формате JSON
+            httpURLConnection.setRequestProperty("Content-Type", "application/json");
+            // заставляет прочитать сообщение в формате JSON
+            httpURLConnection.setRequestProperty("Accept", "application/json");
+            // использование соединения для отправки данных
+            httpURLConnection.setDoOutput(true);
+
+            // создание и отправка тела запроса
+            try (OutputStream os = httpURLConnection.getOutputStream()) {
+                byte[] input = post_data.getBytes("utf-8");
+                os.write(input, 0, input.length);
+            }
+
+            String line = "";
+            InputStreamReader inputStreamReader = new InputStreamReader(httpURLConnection.getInputStream());
+            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+            StringBuilder response = new StringBuilder();
+            while ((line = bufferedReader.readLine()) != null) {
+                response.append(line);
+            }
+            bufferedReader.close();
+
+            // TODO - данный вывод можно убрать
+            System.out.println("Response code: " + httpURLConnection.getResponseCode());
+
+            return httpURLConnection.getResponseCode() <= 299 &&  httpURLConnection.getResponseCode() >= 200 ? true : false;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.err.println("sendPostRequest_AddUserInBlackList: Ошибка добавления пользователя в \"чёрный\" список;");
+            return false;
+        }
+    }
+
+    /**
+     * Функция удаляет чат,
+     * принимает токен сессии и идентификатор удаляемого чата
+     * @param _ChatID int (идентификатор удаляемого чата)
+     * @param _Token String (токен сессии)
+     * @return boolean
+     * @see <a href="https://github.com/RobertoSenyor/TFG_Documentation/blob/main/API.md#удаляет-чат">GitHubURL</a>
+     */
+    public static boolean sendPostRequest_DropChat(int _ChatID, String _Token)
+    {
+        // TODO - поменять URL
+        String urlRequest = "http://127.0.0.1:5000/Messages/delete_chat?token=" + _Token;
+
+        try {
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.put("chat_id", _ChatID);
+
+            String post_data = jsonObject.toString();
+
+            URL url = new URL(urlRequest);
+            HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+            httpURLConnection.setRequestMethod("POST");
+
+            // для отправки в формате JSON
+            httpURLConnection.setRequestProperty("Content-Type", "application/json");
+            // заставляет прочитать сообщение в формате JSON
+            httpURLConnection.setRequestProperty("Accept", "application/json");
+            // использование соединения для отправки данных
+            httpURLConnection.setDoOutput(true);
+
+            // создание и отправка тела запроса
+            try (OutputStream os = httpURLConnection.getOutputStream()) {
+                byte[] input = post_data.getBytes("utf-8");
+                os.write(input, 0, input.length);
+            }
+
+            String line = "";
+            InputStreamReader inputStreamReader = new InputStreamReader(httpURLConnection.getInputStream());
+            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+            StringBuilder response = new StringBuilder();
+            while ((line = bufferedReader.readLine()) != null) {
+                response.append(line);
+            }
+            bufferedReader.close();
+
+            // TODO - данный вывод можно убрать
+            System.out.println("Response code: " + httpURLConnection.getResponseCode());
+
+            return httpURLConnection.getResponseCode() <= 299 &&  httpURLConnection.getResponseCode() >= 200 ? true : false;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.err.println("sendPostRequest_DropChat: Ошибка удаления чата;");
+            return false;
         }
     }
 }
