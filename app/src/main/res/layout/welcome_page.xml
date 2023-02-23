@@ -2,16 +2,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="409dp"
-    android:layout_height="889dp"
+    android:layout_width="360dp"
+    android:layout_height="800dp"
     android:background="@color/background">
 
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/_880x5790">
-
+        android:layout_height="wrap_content"
+        android:background="@drawable/_880x5790"
+        android:fillViewport="true">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -27,27 +27,124 @@
                 android:text="О нас"
                 android:textColor="@color/white"
                 android:textSize="12dp"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.232"
+                app:layout_constraintHorizontal_bias="0.233"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.018"
+                app:layout_constraintVertical_bias="0.0"
                 tools:ignore="MissingConstraints" />
+
 
             <Button
                 android:id="@+id/LoginBtn"
                 android:layout_width="69dp"
                 android:layout_height="34dp"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="16dp"
                 android:background="@drawable/button_border"
                 android:text="Войти"
                 android:textColor="@color/white"
                 android:textSize="12dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.626"
+                app:layout_constraintHorizontal_bias="0.873"
                 app:layout_constraintStart_toEndOf="@+id/AboutUsBtn"
                 app:layout_constraintTop_toTopOf="parent" />
+
+
+            <ImageView
+                android:id="@+id/image_fred1"
+                android:layout_width="98dp"
+                android:layout_height="177dp"
+                android:layout_marginTop="40dp"
+                app:layout_constraintEnd_toEndOf="@+id/LoginBtn"
+                app:layout_constraintHorizontal_bias="0.211"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/AboutUsBtn"
+                app:srcCompat="@drawable/fred_01" />
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="129dp"
+                android:layout_height="220dp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintEnd_toEndOf="@+id/textView4"
+                app:layout_constraintHorizontal_bias="0.83"
+                app:layout_constraintStart_toStartOf="@+id/textView4"
+                app:layout_constraintTop_toBottomOf="@+id/textView4"
+                app:srcCompat="@drawable/fred_02" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Это Фрэд. Фрэд - космический рейнджер.\n
+И он немного расстроен..."
+                android:textColor="@color/white"
+                android:textSize="13dp"
+                app:layout_constraintEnd_toEndOf="@+id/LoginBtn"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/image_fred1"
+                app:layout_constraintTop_toBottomOf="@+id/image_fred1" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Фрэд расстроен из-за своего одиночества...\n
+Фрэду совсем не с кем поиграть\n в его любимые видеоигры...\n
+Если бы у Фрэда были друзья... Эх, если бы...
+"
+                android:textColor="@color/white"
+                android:textSize="13dp"
+                app:layout_constraintEnd_toEndOf="@+id/LoginBtn"
+                app:layout_constraintHorizontal_bias="0.253"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Фрэд родом с далекой планеты Kelper-22b.\n
+Мечтой детства Фрэда было бороздить бескрайние\nпросторы космоса.\n
+Пожертвовав своей любовью к родным и близким,\nФрэд отправился навстречу к своей цели.
+"
+                android:textColor="@color/grey"
+                android:textSize="11dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.628"
+                app:layout_constraintStart_toStartOf="@+id/textView2"
+                app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="right"
+                android:text="Ученые его планеты посчитали, что игры\n приводят к деградации общества.
+Несмотря на доводы народа,\n объединенное мировое правительство было намерено\n действовать жёстко.
+После второй технической революции\nна планете Фрэда были уничтожены все игры!"
+                android:textColor="@color/grey"
+                android:textSize="11dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.333"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="TextView"
+                app:layout_constraintEnd_toEndOf="@+id/imageView4"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/imageView4"
+                app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
