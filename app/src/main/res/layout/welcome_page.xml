@@ -10,7 +10,7 @@
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/_880x5790"
+        android:background="@drawable/backgrnd_welcome_page"
         android:fillViewport="true">
 
         <androidx.constraintlayout.widget.ConstraintLayout
