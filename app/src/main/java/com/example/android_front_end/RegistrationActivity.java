@@ -2,21 +2,17 @@ package com.example.android_front_end;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.Intent;
-import android.content.pm.ActivityInfo;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
-import android.view.View;
-import android.widget.Button;
+import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-
 public class RegistrationActivity extends AppCompatActivity {
 
-    private Button BackBtn;
+    private EditText NicknameTextField;
 
     /**
      * короткая вибрация (50мсек)
@@ -54,11 +50,13 @@ public class RegistrationActivity extends AppCompatActivity {
         }
     }
 
-
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.registration_page);
+
+        NicknameTextField = (EditText) findViewById(R.id.NicknameTextField);
+
     }
 }

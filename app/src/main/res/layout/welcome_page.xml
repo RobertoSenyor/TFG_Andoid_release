@@ -25,6 +25,8 @@
                 android:layout_marginTop="16dp"
                 android:background="@android:color/transparent"
                 android:text="О нас"
+                android:fontFamily="@font/roboto_light"
+                android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="12dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -41,6 +43,8 @@
                 android:layout_marginTop="16dp"
                 android:background="@drawable/login_button_border"
                 android:text="Войти"
+                android:fontFamily="@font/roboto_light"
+                android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="12dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -57,6 +61,8 @@
                 android:height="11dp"
                 android:background="@drawable/registration_button_border"
                 android:text="Регистрация"
+                android:fontFamily="@font/roboto_light"
+                android:textAllCaps="false"
                 android:textSize="11dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.51"
@@ -101,6 +107,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
+                android:fontFamily="@font/bitter"
                 android:text="Это Фрэд. Фрэд - космический рейнджер.\n
 И он немного расстроен..."
                 android:textColor="@color/white"
@@ -115,6 +122,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
+                android:fontFamily="@font/bitter"
                 android:text="Фрэд расстроен из-за своего одиночества...\n
 Фрэду совсем не с кем поиграть\n в его любимые видеоигры...\n
 Если бы у Фрэда были друзья... Эх, если бы...
@@ -131,6 +139,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
+                android:fontFamily="@font/bitter"
                 android:text="Фрэд родом с далекой планеты Kelper-22b.\n
 Мечтой детства Фрэда было бороздить бескрайние\nпросторы космоса.\n
 Пожертвовав своей любовью к родным и близким,\nФрэд отправился навстречу к своей цели.
@@ -147,6 +156,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
+                android:fontFamily="@font/bitter"
                 android:gravity="right"
                 android:text="Ученые его планеты посчитали, что игры\n приводят к деградации общества.
 Несмотря на доводы народа,\n объединенное мировое правительство было намерено\n действовать жёстко.
@@ -163,6 +173,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
+                android:fontFamily="@font/bitter"
                 android:gravity="right"
                 android:text="Фрэд повидал множество\nнеобитаемых планет,
 но среди холодных\nи недобрых он наткнулся на нашу Землю.\n\n
@@ -181,6 +192,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
+                android:fontFamily="@font/bitter"
                 android:gravity="center"
                 android:text="Благодаря совместным усилиям\n
 Фрэда и разработчиков с\n
@@ -200,6 +212,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:fontFamily="@font/bitter"
                 android:text="Фрэд больше не одинок.\n
 Пусть ему и пришлось улететь с Земли\n
 в поисках новых цивилизаций, зато теперь\n
@@ -217,6 +230,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="33dp"
+                android:fontFamily="@font/bitter"
                 android:gravity="center"
                 android:text="Раздели свою любовь к играм\n
 Сделай первый шаг к новым знакомствам"
@@ -233,6 +247,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:layout_marginBottom="24dp"
+                android:fontFamily="@font/bitter"
                 android:gravity="center"
                 android:text="----------------------------------------\n
 PlayMate ©

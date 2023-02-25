@@ -31,130 +31,196 @@
         app:layout_constraintVertical_bias="0.067"
         app:srcCompat="@drawable/fred_reg_01" />
 
+    <!-- TODO - при нажатии на поле очистить поле ввода -->
     <EditText
-        android:id="@+id/editTextTextPersonName2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/NicknameTextField"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginStart="90dp"
         android:layout_marginTop="144dp"
-        android:ems="10"
+        android:layout_marginEnd="90dp"
+        android:background="@drawable/login_button_border"
+        android:fontFamily="@font/roboto_light"
         android:inputType="textPersonName"
-        android:text="Name"
+        android:paddingStart="10dp"
+        android:hint="Никнейм"
+        android:textColorHint="@color/white"
+        android:textColor="@color/white"
+        android:textAllCaps="false"
+        android:textSize="13dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/RegistrationBackgrnd"
         app:layout_constraintTop_toTopOf="@+id/RegistrationBackgrnd" />
 
+    <!-- TODO - при нажатии на поле очистить поле ввода -->
     <EditText
-        android:id="@+id/editTextTextPersonName3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/URLTextField"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginStart="90dp"
         android:layout_marginTop="24dp"
-        android:ems="10"
+        android:layout_marginEnd="90dp"
+        android:background="@drawable/login_button_border"
+        android:fontFamily="@font/roboto_light"
         android:inputType="textPersonName"
-        android:text="Name"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName2"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName2"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
+        android:paddingStart="10dp"
+        android:hint="Ссылка на профиль Steam"
+        android:textAllCaps="false"
+        android:textColorHint="@color/white"
+        android:textColor="@color/white"
+        android:textSize="13dp"
+        app:layout_constraintEnd_toEndOf="@+id/NicknameTextField"
+        app:layout_constraintStart_toStartOf="@+id/NicknameTextField"
+        app:layout_constraintTop_toBottomOf="@+id/NicknameTextField" />
 
+    <!-- TODO - при нажатии на поле очистить поле ввода -->
     <EditText
-        android:id="@+id/editTextTextEmailAddress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/EMailTextField"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginStart="90dp"
         android:layout_marginTop="24dp"
-        android:ems="10"
+        android:layout_marginEnd="90dp"
+        android:background="@drawable/login_button_border"
+        android:fontFamily="@font/roboto_light"
         android:inputType="textEmailAddress"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName3"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName3"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3" />
+        android:paddingStart="10dp"
+        android:hint="Электронная почта"
+        android:textAllCaps="false"
+        android:textColorHint="@color/white"
+        android:textColor="@color/white"
+        android:textSize="13dp"
+        app:layout_constraintEnd_toEndOf="@+id/URLTextField"
+        app:layout_constraintStart_toStartOf="@+id/URLTextField"
+        app:layout_constraintTop_toBottomOf="@+id/URLTextField" />
 
+    <!-- TODO - при нажатии на поле очистить поле ввода -->
+    <!-- TODO - при нажатии на поле изменить на invisiblePassword -->
     <EditText
-        android:id="@+id/editTextTextPassword2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/PasswordTextField"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginStart="90dp"
         android:layout_marginTop="24dp"
-        android:ems="10"
+        android:layout_marginEnd="90dp"
+        android:background="@drawable/login_button_border"
+        android:fontFamily="@font/roboto_light"
         android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextEmailAddress"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextEmailAddress"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
+        android:paddingStart="10dp"
+        android:hint="Пароль"
+        android:textAllCaps="false"
+        android:textColorHint="@color/white"
+        android:textColor="@color/white"
+        android:textSize="13dp"
+        app:layout_constraintEnd_toEndOf="@+id/EMailTextField"
+        app:layout_constraintStart_toStartOf="@+id/EMailTextField"
+        app:layout_constraintTop_toBottomOf="@+id/EMailTextField" />
 
+    <!-- TODO - при нажатии на поле очистить поле ввода -->
     <EditText
-        android:id="@+id/editTextTextPassword3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/AgainPasswordTextField"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginStart="90dp"
         android:layout_marginTop="24dp"
-        android:ems="10"
+        android:layout_marginEnd="90dp"
+        android:background="@drawable/login_button_border"
+        android:fontFamily="@font/roboto_light"
         android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPassword2"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPassword2"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword2" />
+        android:paddingStart="10dp"
+        android:hint="Повторите пароль"
+        android:textAllCaps="false"
+        android:textColorHint="@color/white"
+        android:textColor="@color/white"
+        android:textSize="13dp"
+        app:layout_constraintEnd_toEndOf="@+id/PasswordTextField"
+        app:layout_constraintStart_toStartOf="@+id/PasswordTextField"
+        app:layout_constraintTop_toBottomOf="@+id/PasswordTextField" />
 
     <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/RegistrationBtn"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
         android:layout_marginTop="24dp"
-        android:text="Button"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPassword3"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPassword3"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword3" />
+        android:layout_marginStart="90dp"
+        android:layout_marginEnd="90dp"
+        android:text="Зарегистрироваться"
+        android:textAllCaps="false"
+        android:textSize="13dp"
+        app:layout_constraintEnd_toEndOf="@+id/AgainPasswordTextField"
+        app:layout_constraintStart_toStartOf="@+id/AgainPasswordTextField"
+        app:layout_constraintTop_toBottomOf="@+id/AgainPasswordTextField" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/ExistAccountBtn"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="Button"
-        app:layout_constraintEnd_toEndOf="@+id/button3"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/button3"
-        app:layout_constraintTop_toBottomOf="@+id/button3" />
+        android:layout_height="20dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/transparent"
+        android:text="Уже есть аккаунт?"
+        android:textAllCaps="false"
+        android:textSize="13dp"
+        android:textColor="@color/blue"
+        app:layout_constraintEnd_toEndOf="@+id/RegistrationBtn"
+        app:layout_constraintStart_toStartOf="@+id/RegistrationBtn"
+        app:layout_constraintTop_toBottomOf="@+id/RegistrationBtn" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/SocialPolicyBtn"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="Button"
-        app:layout_constraintEnd_toEndOf="@+id/button4"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/button4"
-        app:layout_constraintTop_toBottomOf="@+id/button4" />
+        android:layout_height="20dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/transparent"
+        android:text="Правила Сообщества PlayMate"
+        android:textAllCaps="false"
+        android:textSize="13dp"
+        android:textColor="@color/blue"
+        app:layout_constraintEnd_toEndOf="@+id/ExistAccountBtn"
+        app:layout_constraintStart_toStartOf="@+id/ExistAccountBtn"
+        app:layout_constraintTop_toBottomOf="@+id/ExistAccountBtn" />
 
+    <!-- TODO - сделать видимым при успешной регистрации -->
     <FrameLayout
         android:visibility="invisible"
         android:layout_width="match_parent"
-        android:layout_height="37dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
+        android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button5"
-        app:layout_constraintVertical_bias="0.235">
+        app:layout_constraintTop_toBottomOf="@+id/SocialPolicyBtn"
+        android:background="@drawable/login_button_border"
+        >
 
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_gravity="left"
-            app:srcCompat="@drawable/pngwing_com__2_"
-            />
-
-        <TextView
-            android:id="@+id/textView11"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:text="TextView"
-            android:textColor="@color/white" />
+            android:orientation="horizontal"
+            >
 
-        <Button
-            android:id="@+id/button7"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="right"
-            android:text="Button" />
+            <ImageView
+                android:id="@+id/AcceptRegistrationImageView"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="left|center"
+                android:paddingStart="5dp"
+                android:layout_marginEnd="10dp"
+                app:srcCompat="@drawable/pngwing_com__2_" />
+
+            <!-- TODO - Нажатие на текст перемещает на авторизацию -->
+            <TextView
+                android:id="@+id/AcceptAuthTextView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:text="На вашу почту было отправлено письмо с подтверждением личности"
+                android:gravity="center"
+                android:textSize="10dp"
+                android:textColor="@color/white" />
+        </LinearLayout>
     </FrameLayout>
 
 
